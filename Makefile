@@ -1,0 +1,37 @@
+# vpwspal tools makefile
+VPWSPALCONV_TARGET := vpwspalconv
+VPWSPALCONV_DEBUG_TARGET := vpwspalconv_d
+VPWSPALCONV_SRC_FILES := vpwspalconv.c
+
+VPWSPALMERGE_TARGET := vpwspalmerge
+VPWSPALMERGE_DEBUG_TARGET := vpwspalmerge_d
+VPWSPALMERGE_SRC_FILES := vpwspalmerge.c
+
+CFLAGS := -Wall -Wextra -s -O2
+CFLAGS_DEBUG := -Wall -Wextra -g -Og -DDEBUG
+
+default: release
+
+all: release debug
+
+release: $(VPWSPALCONV_TARGET) $(VPWSPALMERGE_TARGET)
+
+debug: $(VPWSPALCONV_DEBUG_TARGET)
+
+$(VPWSPALCONV_TARGET): $(VPWSPALCONV_SRC_FILES)
+	$(CC) $(CFLAGS) $^ $(LDFLAGS) -o $@
+
+$(VPWSPALCONV_DEBUG_TARGET): $(VPWSPALCONV_SRC_FILES)
+	$(CC) $(CFLAGS_DEBUG) $^ $(LDFLAGS) -o $@
+
+$(VPWSPALMERGE_TARGET): $(VPWSPALMERGE_SRC_FILES)
+	$(CC) $(CFLAGS) $^ $(LDFLAGS) -o $@
+
+$(VPWSPALMERGE_DEBUG_TARGET): $(VPWSPALMERGE_SRC_FILES)
+	$(CC) $(CFLAGS_DEBUG) $^ $(LDFLAGS) -o $@
+
+clean:
+	rm -f $(VPWSPALCONV_TARGET) $(VPWSPALCONV_DEBUG_TARGET)
+	rm -f $(VPWSPALMERGE_TARGET) $(VPWSPALMERGE_DEBUG_TARGET)
+
+.PHONY: all clean default release debug
