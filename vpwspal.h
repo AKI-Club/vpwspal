@@ -20,12 +20,12 @@ void MakePalColor(char *in, PalColor *out){
 		out->red = atoi(stringVals);
 	}
 
-	stringVals = strtok(in, " ");
+	stringVals = strtok(NULL, " ");
 	if(stringVals != NULL){
 		out->green = atoi(stringVals);
 	}
 
-	stringVals = strtok(in, " ");
+	stringVals = strtok(NULL, " ");
 	if(stringVals != NULL){
 		out->blue = atoi(stringVals);
 	}
