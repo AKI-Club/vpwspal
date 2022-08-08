@@ -1,4 +1,4 @@
-# VPW Studio stand-along palette tools
+# VPW Studio stand-alone palette tools
 Some quickly-hacked together tools for converting JASC Paint Shop Pro palette
 format to the VPW Studio `.vpwspal` format.
 
