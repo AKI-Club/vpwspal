@@ -7,11 +7,12 @@
 #include <string.h>
 #include "vpwspal.h"
 
+#define VERSION_STRING "v1.1"
 #define STRING_BUFFER_SIZE 256
 #define MAX_PALETTE_ENTRIES 256
 
 static void Usage(char* execName){
-	printf("%s - VPW Studio palette converter\n", execName);
+	printf("%s - VPW Studio palette converter %s\n", execName, VERSION_STRING);
 	printf("Usage: %s JASC_PAL_FILE\n", execName);
 }
 
@@ -30,7 +31,7 @@ int main(int argc, char *argv[]){
 		exit(EXIT_FAILURE);
 	}
 
-	printf("%s - VPW Studio palette converter\n", argv[0]);
+	printf("%s - VPW Studio palette converter %s\n", argv[0], VERSION_STRING);
 
 	if(argc > 2){
 		printf("This program does not currently support processing multiple files at one time.\n");
